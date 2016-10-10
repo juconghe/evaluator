@@ -1,0 +1,584 @@
+commit 3b53f37a9f964f1f8f948141708db785fe44f1b8
+Author: Jucong He <Jucong@1x-vl915-72-19-126-241.wireless.umass.edu>
+Date:   Sat Apr 4 20:45:10 2015 -0400
+
+    hw04
+
+ .DS_Store                                          | Bin 8196 -> 8196 bytes
+ asn-regex-derivative-student-master/.DS_Store      | Bin 0 -> 6148 bytes
+ asn-regex-derivative-student-master/.gitignore     |  21 ++
+ asn-regex-derivative-student-master/LICENSE        | 202 ++++++++++++
+ asn-regex-derivative-student-master/README.md      | 335 ++++++++++++++++++++
+ asn-regex-derivative-student-master/build.sbt      |   8 +
+ .../project/plugins.sbt                            |   5 +
+ .../scalastyle-config.xml                          |  96 ++++++
+ .../src/main/scala/cs220/regex/Factory.scala       |   5 +
+ .../src/main/scala/cs220/regex/RegEx.scala         | 248 +++++++++++++++
+ .../test/scala/cs220/regex/RegExTestSuite.scala    | 350 +++++++++++++++++++++
+ hw03/.DS_Store                                     | Bin 8196 -> 8196 bytes
+ hw03/src/.DS_Store                                 | Bin 8196 -> 8196 bytes
+ hw03/src/main/.DS_Store                            | Bin 8196 -> 8196 bytes
+ hw03/src/main/scala/.DS_Store                      | Bin 8196 -> 6148 bytes
+ hw03/src/main/scala/cs220/.DS_Store                | Bin 0 -> 6148 bytes
+ hw03/src/main/scala/cs220/evaluator/.DS_Store      | Bin 0 -> 6148 bytes
+ 17 files changed, 1270 insertions(+)
+
+commit 2e70d69585912145d03ea7e525a25f86148ec630
+Author: Jucong He <Jucong@Jucongs-MBP.home>
+Date:   Wed Mar 18 21:09:04 2015 -0400
+
+    hw03
+
+ .DS_Store                                          | Bin 8196 -> 8196 bytes
+ expr-evaluator-student/.DS_Store                   | Bin 8196 -> 0 bytes
+ expr-evaluator-student/.gitignore                  |   1 -
+ expr-evaluator-student/build.sbt                   |  11 --
+ expr-evaluator-student/eps/01.e                    |   4 -
+ expr-evaluator-student/eps/02.e                    |   4 -
+ expr-evaluator-student/eps/03.e                    |   7 -
+ expr-evaluator-student/eps/04.e                    |   1 -
+ expr-evaluator-student/eps/05.e                    |   4 -
+ expr-evaluator-student/project/.DS_Store           | Bin 6148 -> 0 bytes
+ expr-evaluator-student/project/plugins.sbt         |   5 -
+ expr-evaluator-student/scalastyle-config.xml       |  96 -----------
+ expr-evaluator-student/src/.DS_Store               | Bin 8196 -> 0 bytes
+ expr-evaluator-student/src/main/.DS_Store          | Bin 8196 -> 0 bytes
+ expr-evaluator-student/src/main/scala/.DS_Store    | Bin 8196 -> 0 bytes
+ .../src/main/scala/cs220/Main.scala                |  48 ------
+ .../main/scala/cs220/evaluator/Environment.scala   |  86 ----------
+ .../src/main/scala/cs220/evaluator/Evaluator.scala | 132 ---------------
+ .../src/main/scala/cs220/evaluator/Expr.scala      |  56 -------
+ .../src/main/scala/cs220/evaluator/Value.scala     |  21 ---
+ .../src/main/scala/cs220/parser/Parser.scala       | 111 -------------
+ .../scala/cs220/Student28650090TestSuite.scala     |   5 -
+ .../cs220/evaluator/EnvironmentTestSuite.scala     |  57 -------
+ .../scala/cs220/evaluator/EvaluatorTestSuite.scala |  63 -------
+ .../test/scala/cs220/evaluator/ExprTestSuite.scala |  88 ----------
+ .../scala/cs220/evaluator/ValueTestSuite.scala     |  13 --
+ .../scala/cs220/parser/ExprParserTestSuite.scala   |  44 -----
+ hw03/.DS_Store                                     | Bin 0 -> 8196 bytes
+ hw03/.gitignore                                    |   1 +
+ hw03/build.sbt                                     |  11 ++
+ hw03/eps/01.e                                      |   4 +
+ hw03/eps/02.e                                      |   4 +
+ hw03/eps/03.e                                      |   7 +
+ hw03/eps/04.e                                      |   1 +
+ hw03/eps/05.e                                      |   4 +
+ hw03/project/.DS_Store                             | Bin 0 -> 6148 bytes
+ hw03/project/plugins.sbt                           |   5 +
+ hw03/scalastyle-config.xml                         |  96 +++++++++++
+ hw03/src/.DS_Store                                 | Bin 0 -> 8196 bytes
+ hw03/src/main/.DS_Store                            | Bin 0 -> 8196 bytes
+ hw03/src/main/scala/.DS_Store                      | Bin 0 -> 8196 bytes
+ hw03/src/main/scala/cs220/Main.scala               |  48 ++++++
+ .../main/scala/cs220/evaluator/Environment.scala   | 106 ++++++++++++
+ .../src/main/scala/cs220/evaluator/Evaluator.scala | 181 +++++++++++++++++++++
+ hw03/src/main/scala/cs220/evaluator/Expr.scala     |  56 +++++++
+ hw03/src/main/scala/cs220/evaluator/Value.scala    |  21 +++
+ hw03/src/main/scala/cs220/parser/Parser.scala      | 111 +++++++++++++
+ .../scala/cs220/Student28650090TestSuite.scala     | 169 +++++++++++++++++++
+ .../cs220/evaluator/EnvironmentTestSuite.scala     |  57 +++++++
+ .../scala/cs220/evaluator/EvaluatorTestSuite.scala |  63 +++++++
+ .../test/scala/cs220/evaluator/ExprTestSuite.scala |  88 ++++++++++
+ .../scala/cs220/evaluator/ValueTestSuite.scala     |  13 ++
+ .../scala/cs220/parser/ExprParserTestSuite.scala   |  44 +++++
+ 53 files changed, 1090 insertions(+), 857 deletions(-)
+
+commit 4eeb2f29c0e12ce750de21e6d75a5c0e7208d796
+Author: Jucong He <Jucong@1x-vl915-72-19-124-101.wireless.umass.edu>
+Date:   Wed Mar 11 14:17:59 2015 -0400
+
+    dis08
+
+ .DS_Store                                          | Bin 8196 -> 8196 bytes
+ dis08                                              |   1 +
+ .../main/scala/cs220/evaluator/Environment.scala   |  19 +-
+ .../src/main/scala/cs220/evaluator/Evaluator.scala |  12 +-
+ target/.history                                    |   2 +
+ .../0.1-SNAPSHOT/resolved.xml.properties           |   4 +
+ .../0.1-SNAPSHOT/resolved.xml.xml                  |  38 ++
+ ...default-root-28650090_2.10-compile-internal.xml |  25 +
+ .../reports/default-root-28650090_2.10-compile.xml |  25 +
+ .../reports/default-root-28650090_2.10-docs.xml    |  13 +
+ .../default-root-28650090_2.10-optional.xml        |  13 +
+ .../reports/default-root-28650090_2.10-plugin.xml  |  13 +
+ .../reports/default-root-28650090_2.10-pom.xml     |  13 +
+ .../default-root-28650090_2.10-provided.xml        |  13 +
+ ...default-root-28650090_2.10-runtime-internal.xml |  25 +
+ .../reports/default-root-28650090_2.10-runtime.xml |  25 +
+ .../default-root-28650090_2.10-scala-tool.xml      |  76 +++
+ .../reports/default-root-28650090_2.10-sources.xml |  13 +
+ .../default-root-28650090_2.10-test-internal.xml   |  25 +
+ .../reports/default-root-28650090_2.10-test.xml    |  25 +
+ target/resolution-cache/reports/ivy-report.css     | 279 +++++++++++
+ target/resolution-cache/reports/ivy-report.xsl     | 514 +++++++++++++++++++++
+ target/streams/$global/$global/$global/streams/out |   0
+ .../$global/streams/update_cache_2.10/input_dsp    | Bin 0 -> 62 bytes
+ .../$global/streams/update_cache_2.10/output_dsp   | Bin 0 -> 112 bytes
+ .../$global/ivyConfiguration/$global/streams/out   |   3 +
+ target/streams/$global/ivySbt/$global/streams/out  |   0
+ .../$global/projectDescriptors/$global/streams/out |   0
+ target/streams/$global/update/$global/streams/out  | 149 ++++++
+ .../$global/streams/update_cache_2.10/inputs       | Bin 0 -> 2646 bytes
+ .../$global/streams/update_cache_2.10/output       | Bin 0 -> 14471 bytes
+ .../$global/$global/discoveredMainClasses/data     | Bin 0 -> 4 bytes
+ .../streams/compile/compile/$global/streams/export |   0
+ target/streams/compile/compile/$global/streams/out |  15 +
+ .../copyResources/$global/streams/copy-resources   | Bin 0 -> 23 bytes
+ .../compile/copyResources/$global/streams/out      |   2 +
+ .../dependencyClasspath/$global/streams/export     |   1 +
+ .../exportedProducts/$global/streams/export        |   1 +
+ .../$global/streams/export                         |   1 +
+ .../$global/streams/export                         |   1 +
+ .../managedClasspath/$global/streams/export        |   1 +
+ .../unmanagedClasspath/$global/streams/export      |   1 +
+ .../compile/unmanagedJars/$global/streams/export   |   1 +
+ .../exportedProducts/$global/streams/export        |   1 +
+ .../runtime/unmanagedJars/$global/streams/export   |   1 +
+ .../test/$global/$global/definedTestNames/data     | Bin 0 -> 4 bytes
+ .../$global/$global/discoveredMainClasses/data     | Bin 0 -> 4 bytes
+ target/streams/test/compile/$global/streams/export |   0
+ target/streams/test/compile/$global/streams/out    |  15 +
+ .../copyResources/$global/streams/copy-resources   | Bin 0 -> 23 bytes
+ .../streams/test/copyResources/$global/streams/out |   2 +
+ .../streams/test/definedTests/$global/streams/out  |   2 +
+ .../dependencyClasspath/$global/streams/export     |   1 +
+ .../test/exportedProducts/$global/streams/export   |   1 +
+ .../$global/streams/export                         |   1 +
+ .../test/fullClasspath/$global/streams/export      |   1 +
+ .../$global/streams/export                         |   1 +
+ .../test/loadedTestFrameworks/$global/streams/out  |   7 +
+ .../test/managedClasspath/$global/streams/export   |   1 +
+ target/streams/test/test/$global/streams/out       |   0
+ .../test/unmanagedClasspath/$global/streams/export |   1 +
+ .../test/unmanagedJars/$global/streams/export      |   1 +
+ 62 files changed, 1371 insertions(+), 14 deletions(-)
+
+commit 9b505ff2ae18ec48410119e07cf16cdb132b4efd
+Author: Jucong He <Jucong@1x-vl915-72-19-125-182.wireless.umass.edu>
+Date:   Mon Mar 9 15:41:42 2015 -0400
+
+    hw03_Backup
+
+ .../main/scala/cs220/evaluator/Environment.scala   | 30 +++++++---
+ .../src/main/scala/cs220/evaluator/Evaluator.scala | 66 +++++++++++++++++++---
+ .../src/main/scala/cs220/evaluator/Expr.scala      | 39 ++++++++++++-
+ .../scala/cs220/Student28650090TestSuite.scala     |  5 ++
+ 4 files changed, 123 insertions(+), 17 deletions(-)
+
+commit 77d7e52bd9c984056786bf07abffee4755508b64
+Author: Jucong He <Jucong@1x-vl915-72-19-127-62.wireless.umass.edu>
+Date:   Wed Mar 4 19:48:42 2015 -0500
+
+    hw03
+
+ .DS_Store                                          | Bin 0 -> 8196 bytes
+ dis03/.DS_Store                                    | Bin 0 -> 6148 bytes
+ expr-evaluator-student/.DS_Store                   | Bin 0 -> 8196 bytes
+ expr-evaluator-student/.gitignore                  |   1 +
+ expr-evaluator-student/build.sbt                   |  11 ++
+ expr-evaluator-student/eps/01.e                    |   4 +
+ expr-evaluator-student/eps/02.e                    |   4 +
+ expr-evaluator-student/eps/03.e                    |   7 ++
+ expr-evaluator-student/eps/04.e                    |   1 +
+ expr-evaluator-student/eps/05.e                    |   4 +
+ expr-evaluator-student/project/.DS_Store           | Bin 0 -> 6148 bytes
+ expr-evaluator-student/project/plugins.sbt         |   5 +
+ expr-evaluator-student/scalastyle-config.xml       |  96 ++++++++++++++++++
+ expr-evaluator-student/src/.DS_Store               | Bin 0 -> 8196 bytes
+ expr-evaluator-student/src/main/.DS_Store          | Bin 0 -> 8196 bytes
+ expr-evaluator-student/src/main/scala/.DS_Store    | Bin 0 -> 8196 bytes
+ .../src/main/scala/cs220/Main.scala                |  48 +++++++++
+ .../main/scala/cs220/evaluator/Environment.scala   |  69 +++++++++++++
+ .../src/main/scala/cs220/evaluator/Evaluator.scala |  82 +++++++++++++++
+ .../src/main/scala/cs220/evaluator/Expr.scala      |  19 ++++
+ .../src/main/scala/cs220/evaluator/Value.scala     |  21 ++++
+ .../src/main/scala/cs220/parser/Parser.scala       | 111 +++++++++++++++++++++
+ .../cs220/evaluator/EnvironmentTestSuite.scala     |  57 +++++++++++
+ .../scala/cs220/evaluator/EvaluatorTestSuite.scala |  63 ++++++++++++
+ .../test/scala/cs220/evaluator/ExprTestSuite.scala |  88 ++++++++++++++++
+ .../scala/cs220/evaluator/ValueTestSuite.scala     |  13 +++
+ .../scala/cs220/parser/ExprParserTestSuite.scala   |  44 ++++++++
+ hw02 backup                                        |  89 -----------------
+ 28 files changed, 748 insertions(+), 89 deletions(-)
+
+commit 3e5a0585bcb49c973abf611d19876bf5c7be4c15
+Author: juconghe <juconghe@umass.edu>
+Date:   Wed Feb 25 19:18:58 2015 +0000
+
+    dis06
+
+ dis06/README.md                                   |   4 ++
+ dis06/bin/cs220/Main$.class                       | Bin 0 -> 2505 bytes
+ dis06/bin/cs220/Main.class                        | Bin 0 -> 750 bytes
+ dis06/bin/cs220/expressions/Add$.class            | Bin 0 -> 1836 bytes
+ dis06/bin/cs220/expressions/Add.class             | Bin 0 -> 4642 bytes
+ dis06/bin/cs220/expressions/Expr.class            | Bin 0 -> 501 bytes
+ dis06/bin/cs220/expressions/Multiply$.class       | Bin 0 -> 1881 bytes
+ dis06/bin/cs220/expressions/Multiply.class        | Bin 0 -> 4703 bytes
+ dis06/bin/cs220/expressions/Number$.class         | Bin 0 -> 1603 bytes
+ dis06/bin/cs220/expressions/Number.class          | Bin 0 -> 4068 bytes
+ dis06/bin/cs220/expressions/Power$.class          | Bin 0 -> 1852 bytes
+ dis06/bin/cs220/expressions/Power.class           | Bin 0 -> 4660 bytes
+ dis06/bin/cs220/expressions/Var$.class            | Bin 0 -> 1512 bytes
+ dis06/bin/cs220/expressions/Var.class             | Bin 0 -> 4136 bytes
+ dis06/build.sh                                    |   5 ++
+ dis06/run.sh                                      |   1 +
+ dis06/src/main/scala/cs220/Main.scala             |  76 ++++++++++++++++++++++
+ dis06/src/main/scala/cs220/expressions/Expr.scala |   7 ++
+ 18 files changed, 93 insertions(+)
+
+commit 6ede054cfe75c5d8cb1f79f1c79b8bff165bc61d
+Author: juconghe <juconghe@umass.edu>
+Date:   Fri Feb 20 21:06:38 2015 +0000
+
+    git ignore file
+
+ .gitignore | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 8ed2b9f0ba9df956d07b08597ed574486acb532d
+Author: juconghe <juconghe@umass.edu>
+Date:   Thu Feb 19 20:58:28 2015 +0000
+
+    hw02
+
+ hw02/src/main/scala/cs220/ds/CerealCsv.scala | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit 5f09d4acaa7ef184a8713b5e7437cc9798c316de
+Author: juconghe <juconghe@umass.edu>
+Date:   Wed Feb 18 23:25:28 2015 +0000
+
+    hw02
+
+ hw02/src/main/scala/cs220/Main.scala         | 6 ------
+ hw02/src/main/scala/cs220/ds/CerealCsv.scala | 6 +++---
+ 2 files changed, 3 insertions(+), 9 deletions(-)
+
+commit b984891cc4cf72cfab2b89a655dfe66f4ad2a0ad
+Author: juconghe <juconghe@umass.edu>
+Date:   Wed Feb 18 23:22:01 2015 +0000
+
+    dis05
+
+ dis05/Main.scala | 19 +++++++++++++------
+ 1 file changed, 13 insertions(+), 6 deletions(-)
+
+commit 0d5c34c0a84daf3d3ad0558b700903c7a6778439
+Author: juconghe <juconghe@umass.edu>
+Date:   Wed Feb 18 19:13:52 2015 +0000
+
+    dis05
+
+ dis05/Main.scala | 13 +++++++++++++
+ dis05/README.md  |  4 ++++
+ dis05/run.sh     |  1 +
+ 3 files changed, 18 insertions(+)
+
+commit ba4992693042fa0914ddbb4fe9049dce0a0ec988
+Author: juconghe <juconghe@umass.edu>
+Date:   Tue Feb 17 02:12:30 2015 +0000
+
+    hw02 final commit
+
+ hw02/src/main/scala/cs220/ds/CerealCsvTrait.scala | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit 8457f7576bc06c93935c01af9da6d57b90653374
+Author: juconghe <juconghe@umass.edu>
+Date:   Tue Feb 17 02:10:02 2015 +0000
+
+    change identions
+
+ hw01/bin/cs220/Main.class                          | Bin 582 -> 559 bytes
+ hw01/src/main/java/cs220/Main.java                 |   5 +-
+ hw02/bin/cs220/Main$$anonfun$main$1.class          | Bin 1048 -> 0 bytes
+ hw02/bin/cs220/Main$.class                         | Bin 2265 -> 1404 bytes
+ hw02/bin/cs220/Main.class                          | Bin 627 -> 564 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$10.class      | Bin 1386 -> 1386 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$11.class      | Bin 1777 -> 1777 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$12.class      | Bin 1573 -> 1573 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$13.class      | Bin 1611 -> 1611 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$14.class      | Bin 1612 -> 1612 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$15.class      | Bin 1611 -> 1611 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$16.class      | Bin 1305 -> 1305 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$17.class      | Bin 1665 -> 1665 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$18.class      | Bin 1502 -> 1502 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$3.class       | Bin 1639 -> 1639 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$4.class       | Bin 1335 -> 1335 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$5.class       | Bin 1609 -> 1609 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$6.class       | Bin 1381 -> 1381 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$7.class       | Bin 1609 -> 1609 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$8.class       | Bin 1381 -> 1381 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$9.class       | Bin 1614 -> 1614 bytes
+ .../CerealCsv$$anonfun$NutritionByServing$1.class  | Bin 2272 -> 2272 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$toCSV$1.class | Bin 1764 -> 1764 bytes
+ hw02/bin/cs220/ds/CerealCsv$.class                 | Bin 2228 -> 2228 bytes
+ hw02/bin/cs220/ds/CerealCsv.class                  | Bin 8778 -> 8778 bytes
+ hw02/src/main/scala/cs220/Main.scala               |   8 --
+ hw02/src/main/scala/cs220/ds/CerealCsv.scala       | 159 ++++++++++-----------
+ 27 files changed, 78 insertions(+), 94 deletions(-)
+
+commit ad184b1926685de462945ebf7631daa6e02ae729
+Author: juconghe <juconghe@umass.edu>
+Date:   Mon Feb 16 02:29:52 2015 +0000
+
+    hw02 with read me file
+
+ hw02/README.md | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+commit 5915051b281da3be67a2a3b6c3846cc1aa909c8d
+Author: juconghe <juconghe@umass.edu>
+Date:   Mon Feb 16 00:57:26 2015 +0000
+
+    hw02 final commit
+
+ hw02 backup                                        |  89 +++++++++++++++++++++
+ hw02/bin/cs220/Main$$anonfun$main$1.class          | Bin 0 -> 1048 bytes
+ hw02/bin/cs220/Main$.class                         | Bin 1107 -> 2265 bytes
+ hw02/bin/cs220/Main.class                          | Bin 564 -> 627 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$10.class      | Bin 1391 -> 1386 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$11.class      | Bin 1611 -> 1777 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$12.class      | Bin 1612 -> 1573 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$13.class      | Bin 1611 -> 1611 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$14.class      | Bin 1305 -> 1612 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$15.class      | Bin 1665 -> 1611 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$16.class      | Bin 1502 -> 1305 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$17.class      | Bin 0 -> 1665 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$18.class      | Bin 0 -> 1502 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$9.class       | Bin 1614 -> 1614 bytes
+ .../CerealCsv$$anonfun$NutritionByServing$1.class  | Bin 2272 -> 2272 bytes
+ ...ListByCalories$1$$anonfun$apply$mcVI$sp$1.class | Bin 1670 -> 0 bytes
+ .../CerealCsv$$anonfun$sortListByCalories$1.class  | Bin 1813 -> 0 bytes
+ .../CerealCsv$$anonfun$sortListByCalories$2.class  | Bin 1729 -> 0 bytes
+ hw02/bin/cs220/ds/CerealCsv$.class                 | Bin 2228 -> 2228 bytes
+ hw02/bin/cs220/ds/CerealCsv.class                  | Bin 8699 -> 8778 bytes
+ hw02/bin/cs220/ds/CerealCsvTrait.class             | Bin 1009 -> 1005 bytes
+ hw02/src/main/scala/cs220/Main.scala               |  22 ++---
+ hw02/src/main/scala/cs220/ds/CerealCsv.scala       |  73 ++++++++---------
+ hw02/src/main/scala/cs220/ds/CerealCsvTrait.scala  |   4 +-
+ 24 files changed, 140 insertions(+), 48 deletions(-)
+
+commit 30438616b88bf2b610dec39672102a0198541367
+Author: juconghe <juconghe@umass.edu>
+Date:   Thu Feb 12 05:41:58 2015 +0000
+
+    hw02 backup
+
+ hw02/bin/cs220/Main$.class                         | Bin 0 -> 1107 bytes
+ hw02/bin/cs220/Main.class                          | Bin 0 -> 564 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$1.class       | Bin 0 -> 1528 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$10.class      | Bin 0 -> 1391 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$11.class      | Bin 0 -> 1611 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$12.class      | Bin 0 -> 1612 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$13.class      | Bin 0 -> 1611 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$14.class      | Bin 0 -> 1305 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$15.class      | Bin 0 -> 1665 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$16.class      | Bin 0 -> 1502 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$2.class       | Bin 0 -> 1520 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$3.class       | Bin 0 -> 1639 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$4.class       | Bin 0 -> 1335 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$5.class       | Bin 0 -> 1609 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$6.class       | Bin 0 -> 1381 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$7.class       | Bin 0 -> 1609 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$8.class       | Bin 0 -> 1381 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$9.class       | Bin 0 -> 1614 bytes
+ .../CerealCsv$$anonfun$NutritionByServing$1.class  | Bin 0 -> 2272 bytes
+ ...ListByCalories$1$$anonfun$apply$mcVI$sp$1.class | Bin 0 -> 1670 bytes
+ .../CerealCsv$$anonfun$sortListByCalories$1.class  | Bin 0 -> 1813 bytes
+ .../CerealCsv$$anonfun$sortListByCalories$2.class  | Bin 0 -> 1729 bytes
+ hw02/bin/cs220/ds/CerealCsv$$anonfun$toCSV$1.class | Bin 0 -> 1764 bytes
+ hw02/bin/cs220/ds/CerealCsv$.class                 | Bin 0 -> 2228 bytes
+ hw02/bin/cs220/ds/CerealCsv.class                  | Bin 0 -> 8699 bytes
+ hw02/bin/cs220/ds/CerealCsvTrait.class             | Bin 0 -> 1009 bytes
+ hw02/bin/cs220/ds/CsvData.class                    | Bin 0 -> 1677 bytes
+ hw02/bin/cs220/ds/CsvReader.class                  | Bin 0 -> 602 bytes
+ hw02/src/main/scala/cs220/Main.scala               |  30 +++++
+ hw02/src/main/scala/cs220/ds/CerealCsv.scala       | 132 +++++++++++++++++----
+ hw02/src/main/scala/cs220/ds/CerealCsvTrait.scala  |   9 ++
+ 31 files changed, 145 insertions(+), 26 deletions(-)
+
+commit 5755b58e95fadd9b9740a3eced4b6265fcda92ab
+Author: juconghe <juconghe@umass.edu>
+Date:   Wed Feb 11 19:11:39 2015 +0000
+
+    dis04
+
+ dis04/README.md                                   |   4 ++
+ dis04/bin/cs220/Main$$anonfun$prettyPrint$1.class | Bin 0 -> 1698 bytes
+ dis04/bin/cs220/Main$.class                       | Bin 0 -> 2606 bytes
+ dis04/bin/cs220/Main.class                        | Bin 0 -> 961 bytes
+ dis04/bin/cs220/cars/CarFinder$$anonfun$1.class   | Bin 0 -> 1422 bytes
+ dis04/bin/cs220/cars/CarFinder$$anonfun$10.class  | Bin 0 -> 1312 bytes
+ dis04/bin/cs220/cars/CarFinder$$anonfun$2.class   | Bin 0 -> 1322 bytes
+ dis04/bin/cs220/cars/CarFinder$$anonfun$3.class   | Bin 0 -> 1441 bytes
+ dis04/bin/cs220/cars/CarFinder$$anonfun$4.class   | Bin 0 -> 1441 bytes
+ dis04/bin/cs220/cars/CarFinder$$anonfun$5.class   | Bin 0 -> 1340 bytes
+ dis04/bin/cs220/cars/CarFinder$$anonfun$6.class   | Bin 0 -> 1427 bytes
+ dis04/bin/cs220/cars/CarFinder$$anonfun$7.class   | Bin 0 -> 1292 bytes
+ dis04/bin/cs220/cars/CarFinder$$anonfun$8.class   | Bin 0 -> 1446 bytes
+ dis04/bin/cs220/cars/CarFinder$$anonfun$9.class   | Bin 0 -> 1446 bytes
+ dis04/bin/cs220/cars/CarFinder.class              | Bin 0 -> 4508 bytes
+ dis04/build.sh                                    |   3 ++
+ dis04/run.sh                                      |   1 +
+ dis04/src/main/scala/cs220/Main.scala             |  53 +++++++++++++++++++
+ dis04/src/main/scala/cs220/cars/CarFinder.scala   |  45 ++++++++++++++++
+ hw02/README.md                                    |   0
+ hw02/build.sh                                     |   3 ++
+ hw02/cereal.csv                                   |   1 +
+ hw02/run.sh                                       |   1 +
+ hw02/src/main/scala/cs220/ds/CerealCsv.scala      |  60 ++++++++++++++++++++++
+ hw02/src/main/scala/cs220/ds/CerealCsvTrait.scala |  13 +++++
+ hw02/src/main/scala/cs220/ds/CsvData.scala        |  39 ++++++++++++++
+ 26 files changed, 223 insertions(+)
+
+commit f686c01af2e42b340ae22f6b961e24207006fa16
+Author: juconghe <juconghe@umass.edu>
+Date:   Thu Feb 5 22:35:09 2015 +0000
+
+    dis03 final commit
+
+ dis03/bin/cs220/Main$.class                        | Bin 0 -> 1594 bytes
+ .../groceries/GroceryList$$anonfun$apply$1.class   | Bin 0 -> 1284 bytes
+ .../GroceryList$$anonfun$printList$1.class         | Bin 1181 -> 1181 bytes
+ dis03/bin/cs220/groceries/GroceryList$.class       | Bin 0 -> 1009 bytes
+ dis03/bin/cs220/groceries/GroceryList.class        | Bin 2908 -> 3220 bytes
+ dis03/src/main/scala/cs220/Main.scala              |   5 ++--
+ .../main/scala/cs220/groceries/GroceryList.scala   |  31 ++++++++++++++-------
+ 7 files changed, 24 insertions(+), 12 deletions(-)
+
+commit c646c5bf124ff526b03d258059479f9026dd04b7
+Author: juconghe <juconghe@umass.edu>
+Date:   Wed Feb 4 20:51:31 2015 +0000
+
+    Extract practice
+
+ dis03/...                                          |   2 ++
+ dis03/bin/cs220/Main.class                         | Bin 0 -> 564 bytes
+ .../GroceryList$$anonfun$printList$1.class         | Bin 0 -> 1181 bytes
+ .../GroceryList$$anonfun$removeItem$1.class        | Bin 0 -> 1375 bytes
+ .../GroceryList$$anonfun$removeItemIndex$1.class   | Bin 0 -> 1536 bytes
+ dis03/bin/cs220/groceries/GroceryList.class        | Bin 0 -> 2908 bytes
+ dis03/build.sh                                     |   1 +
+ dis03/run.sh                                       |   1 +
+ dis03/src/main/scala/cs220/Main.scala              |  27 +++++++++++++++++++
+ .../main/scala/cs220/groceries/GroceryList.scala   |  29 +++++++++++----------
+ 10 files changed, 46 insertions(+), 14 deletions(-)
+
+commit e9548725eca9f2f4e015fba4ba4d21c7397c5b13
+Author: juconghe <juconghe@umass.edu>
+Date:   Wed Feb 4 19:19:40 2015 +0000
+
+    dis3
+
+ dis03/README.md                                    |  6 +++++
+ .../main/scala/cs220/groceries/GroceryList.scala   | 28 ++++++++++++++++++++++
+ 2 files changed, 34 insertions(+)
+
+commit 39133d1784aeef99fe60f75a0ba75782c9a305b8
+Author: juconghe <juconghe@umass.edu>
+Date:   Wed Jan 28 18:34:30 2015 +0000
+
+    hw01 eighth commit
+
+ hw01/run.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 93d6abf17d49e6365518cf265edb849d6e07025e
+Author: juconghe <juconghe@umass.edu>
+Date:   Wed Jan 28 02:18:11 2015 +0000
+
+    hw01 seventh commit
+
+ hw01/build.sh | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 5daf54bb936d5e01477a77a242e5aa39958b8bd7
+Author: juconghe <juconghe@umass.edu>
+Date:   Tue Jan 27 05:22:11 2015 +0000
+
+    hw05 sixth commit
+
+ hw01/bin/cs220/Main.class          | Bin 555 -> 582 bytes
+ hw01/run.sh                        |   1 +
+ hw01/src/main/java/cs220/Main.java |   8 ++++----
+ 3 files changed, 5 insertions(+), 4 deletions(-)
+
+commit d5caa9fd908a824559a58ea878246d34e0820f51
+Author: juconghe <juconghe@umass.edu>
+Date:   Tue Jan 27 02:56:23 2015 +0000
+
+    hw01 fifth commit
+
+ hw01/src/main/java/cs220/Main.java                     | 16 ++++++++++++++++
+ hw01/src/main/java/cs220/util/Function.java            | 10 ++++++++++
+ hw01/src/main/java/cs220/util/FunctionInterface.java   |  5 +++++
+ hw01/src/main/java/cs220/util/ScalaArray.java          | 16 ++++++++++++++++
+ hw01/src/main/java/cs220/util/ScalaArrayInterface.java |  5 +++++
+ hw01/src/main/java/cs220/util/Util.java                | 12 ++++++++++++
+ 6 files changed, 64 insertions(+)
+
+commit ddf84ccc2c5786d1664a3f55ffef814859aae1b2
+Author: juconghe <juconghe@umass.edu>
+Date:   Tue Jan 27 02:54:46 2015 +0000
+
+    hw01 forth commit
+
+ hw01/bin/cs220/Main.class | Bin 0 -> 555 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit a1b2cb0ef0efa5456185863029a0eef337e2dfa0
+Author: juconghe <juconghe@umass.edu>
+Date:   Tue Jan 27 02:53:37 2015 +0000
+
+    hw01 thrid commit
+
+ hw01/bin/cs220/util/Function.class            | Bin 0 -> 541 bytes
+ hw01/bin/cs220/util/FunctionInterface.class   | Bin 0 -> 246 bytes
+ hw01/bin/cs220/util/ScalaArray.class          | Bin 0 -> 716 bytes
+ hw01/bin/cs220/util/ScalaArrayInterface.class | Bin 0 -> 278 bytes
+ hw01/bin/cs220/util/Util.class                | Bin 0 -> 609 bytes
+ 5 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 809edf718c3b042b75b321dee2bb18bf96d93810
+Author: juconghe <juconghe@umass.edu>
+Date:   Fri Jan 23 18:13:02 2015 +0000
+
+    hw01 second commit
+
+ hw01/README.Md | 0
+ hw01/build.sh  | 0
+ hw01/run.sh    | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 7460585d083952f7bf19412edf14a1382a9d5827
+Author: juconghe <juconghe@umass.edu>
+Date:   Fri Jan 23 18:09:37 2015 +0000
+
+    hw01 first commit
+
+ hw01/README.Md | 0
+ hw01/README.md | 4 ++++
+ 2 files changed, 4 insertions(+)
+
+commit a2f3af69d6d7c863bd6b3bca218d6eaae94e9a36
+Author: juconghe <juconghe@umass.edu>
+Date:   Fri Jan 23 06:13:02 2015 +0000
+
+    my readme file
+
+ .swp      | Bin 0 -> 12288 bytes
+ Overview  |   0
+ README.md |  22 ++++++++++++++++++++++
+ 3 files changed, 22 insertions(+)
+
+commit 6bbb486a3c1259c470bedfaa7604c2bf486b12da
+Author: Tim Richards <tim.d.richards@gmail.com>
+Date:   Thu Jan 22 13:24:52 2015 -0500
+
+    added info.md file
+
+ info.md | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)

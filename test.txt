@@ -1,0 +1,51 @@
+[0m[[0minfo[0m] [0mLoading project definition from /vagrant/hw03/srepos/28650090/hw03/project[0m
+[0m[[0minfo[0m] [0mSet current project to expr-evaluator (in build file:/vagrant/hw03/srepos/28650090/hw03/)[0m
+[0m[[0minfo[0m] [0mCompiling 6 Scala sources to /vagrant/hw03/srepos/28650090/hw03/target/scala-2.11/test-classes...[0m
+[0m[[0minfo[0m] [0m[32mEvaluatorTestSuite:[0m[0m
+[0m[[0minfo[0m] [0m[32m- Evaluation of a number expression[0m[0m
+[0m[[0minfo[0m] [0m[32m- Evaluation of a simple variable expression[0m[0m
+[0m[[0minfo[0m] [0m[32m- Evaluation of a simple arithmetic expression[0m[0m
+[0m[[0minfo[0m] [0m[32m- Evaluation of an assignment expression[0m[0m
+[0m[[0minfo[0m] [0m[32mExprParserTestSuite:[0m[0m
+[0m[[0minfo[0m] [0m[32m- Parsing a number[0m[0m
+[0m[[0minfo[0m] [0m[32m- Parsing a variable[0m[0m
+[0m[[0minfo[0m] [0m[32m- Parsing an add expression[0m[0m
+[0m[[0minfo[0m] [0m[32m- Parsing an assignment expression[0m[0m
+[0m[[0minfo[0m] [0m[32mEnvironmentTestSuite:[0m[0m
+[0m[[0minfo[0m] [0m[32m- An empty environment is empty[0m[0m
+[0m[[0minfo[0m] [0m[32m- An empty environment extended by one binding has length 1[0m[0m
+[0m[[0minfo[0m] [0m[32m- Extending an environment with (v -> e) will return e on lookup[0m[0m
+[0m[[0minfo[0m] [0m[32m- An environment has the correct string representation[0m[0m
+[0m[[0minfo[0m] [0m[32mValueTestSuite:[0m[0m
+[0m[[0minfo[0m] [0m[32m- The Value class exists[0m[0m
+[0m[[0minfo[0m] [0m[32mExprTestSuite:[0m[0m
+[0m[[0minfo[0m] [0m[32m- The Number class exists[0m[0m
+[0m[[0minfo[0m] [0m[32m- The Var class exists[0m[0m
+[0m[[0minfo[0m] [0m[32m- The Add class exists[0m[0m
+[0m[[0minfo[0m] [0m[32m- The Sub class exists[0m[0m
+[0m[[0minfo[0m] [0m[32m- The Mul class exists[0m[0m
+[0m[[0minfo[0m] [0m[32m- The Div class exists[0m[0m
+[0m[[0minfo[0m] [0m[32m- The Assign class exists[0m[0m
+[0m[[0minfo[0m] [0m[32m- The Program class exists[0m[0m
+[0m[[0minfo[0m] [0m[32m- Add expression generates the correct infix string form[0m[0m
+[0m[[0minfo[0m] [0m[32m- Sub expression generates the correct infix string form[0m[0m
+[0m[[0minfo[0m] [0m[32m- Mul expression generates the correct infix string form[0m[0m
+[0m[[0minfo[0m] [0m[32m- Div expression generates the correct infix string form[0m[0m
+[0m[[0minfo[0m] [0m[32m- Complicated expression generates the correct infix string form[0m[0m
+[0m[[0minfo[0m] [0m[32mStudent28650090TestSuite:[0m[0m
+[0m[[0minfo[0m] [0m[32m- Test a complex expression[0m[0m
+[0m[[0minfo[0m] [0m[32m- Test a empty program expression[0m[0m
+[0m[[0minfo[0m] [0m[32m- Test a value that is not in the Environment[0m[0m
+[0m[[0minfo[0m] [0m[32m- Test an funny expression[0m[0m
+[0m[[0minfo[0m] [0m[32m- List of expression without add mul div or sub[0m[0m
+[0m[[0minfo[0m] [0m[32m- Multiple expression[0m[0m
+[0m[[0minfo[0m] [0m[32m- expressions without update environment[0m[0m
+[0m[[0minfo[0m] [0m[32m- Assign value that already exist[0m[0m
+[0m[[0minfo[0m] [0m[32m- test each Simple expression[0m[0m
+[0m[[0minfo[0m] [0m[32m- test lookup[0m[0m
+[0m[[0minfo[0m] [0m[36mRun completed in 1 second, 737 milliseconds.[0m[0m
+[0m[[0minfo[0m] [0m[36mTotal number of tests run: 36[0m[0m
+[0m[[0minfo[0m] [0m[36mSuites: completed 6, aborted 0[0m[0m
+[0m[[0minfo[0m] [0m[36mTests: succeeded 36, failed 0, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0minfo[0m] [0m[32mAll tests passed.[0m[0m
+[0m[[32msuccess[0m] [0mTotal time: 22 s, completed Apr 7, 2015 4:53:02 AM[0m
